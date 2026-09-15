@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "reliax"
+name = "reliax-sdk"
 version = "0.0.1"
 description = "Per-decision reliability envelopes for AI systems: conformal coverage, calibrated risk brackets, drift tripwires and signed audit records."
 readme = "README.md"
