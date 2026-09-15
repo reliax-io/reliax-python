@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "reliax"
+version = "0.0.1"
+description = "Per-decision reliability envelopes for AI systems: conformal coverage, calibrated risk brackets, drift tripwires and signed audit records."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Reliax" },
+]
+keywords = [
+    "conformal-prediction",
+    "uncertainty-quantification",
+    "calibration",
+    "venn-abers",
+    "drift-detection",
+    "model-risk",
+    "ai-governance",
+]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://reliax.io"
+Source = "https://github.com/reliax/reliax-python"
+Issues = "https://github.com/reliax/reliax-python/issues"
+Evaluation = "https://github.com/reliax/reliax-evaluation"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/reliax"]
