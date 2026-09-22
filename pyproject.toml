@@ -36,9 +36,9 @@ dependencies = []
 
 [project.urls]
 Homepage = "https://reliax.io"
-Source = "https://github.com/reliax/reliax-python"
-Issues = "https://github.com/reliax/reliax-python/issues"
-Evaluation = "https://github.com/reliax/reliax-evaluation"
+Source = "https://github.com/reliax-io/reliax-python"
+Issues = "https://github.com/reliax-io/reliax-python/issues"
+Evaluation = "https://github.com/reliax-io/reliax-evaluation"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/reliax"]

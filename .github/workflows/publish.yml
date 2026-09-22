@@ -1,7 +1,7 @@
 name: Publish to PyPI
 
 # Publishes on a GitHub Release. Uses PyPI Trusted Publishing (OIDC), so no
-# API token exists anywhere — not in secrets, not on a laptop.
+# API token exists anywhere, not in secrets, not on a laptop.
 #
 # One-time setup on PyPI: project Settings -> Publishing -> Add a new publisher
 #   Owner:            reliax-io
