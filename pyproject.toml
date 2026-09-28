@@ -4,10 +4,10 @@ build-backend = "hatchling.build"
 
 [project]
 name = "reliax-sdk"
-version = "0.0.1"
-description = "Per-decision reliability envelopes for AI systems: conformal coverage, calibrated risk brackets, drift tripwires and signed audit records."
+version = "0.1.0"
+description = "The thin Python client for the Reliax platform: one call out, one certificate back. Standard library only."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 authors = [
@@ -23,7 +23,7 @@ keywords = [
     "ai-governance",
 ]
 classifiers = [
-    "Development Status :: 1 - Planning",
+    "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "Intended Audience :: Financial and Insurance Industry",
     "Intended Audience :: Science/Research",
@@ -33,6 +33,10 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = []
+
+[project.optional-dependencies]
+verify = ["reliax-certificate>=0.1.0"]
+test = ["pytest>=8"]
 
 [project.urls]
 Homepage = "https://reliax.io"
