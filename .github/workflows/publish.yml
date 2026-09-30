@@ -76,3 +76,5 @@ jobs:
 
       - name: Publish
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          skip-existing: true   # a rerun uploads only the files PyPI does not have yet
