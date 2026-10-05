@@ -4,7 +4,7 @@
 platform. Apache-2.0. Standard library only. Terms used here are defined in
 the [glossary](https://github.com/reliax-io#terms).
 
-The client talks to a running Reliax platform, which holds the calibration
+The client talks to a running Reliax platform, which holds the
 calibration sets, the drift state and the record store. Installing the client alone
 does nothing until it is pointed at one; how to get a platform is on the
 [organisation page](https://github.com/reliax-io#with-the-platform). To try
