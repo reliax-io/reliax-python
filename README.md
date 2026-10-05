@@ -1,28 +1,33 @@
 # reliax-sdk
 
 **One call out, one certificate back.** The thin Python client for the Reliax
-platform. Apache-2.0. Standard library only.
+platform. Apache-2.0. Standard library only. Terms used here are defined in
+the [glossary](https://github.com/reliax-io#terms).
+
+The client talks to a running Reliax platform, which holds the calibration
+cohorts, the drift state and the record store. Installing the client alone
+does nothing until it is pointed at one; how to get a platform is on the
+[organisation page](https://github.com/reliax-io#with-the-platform). To try
+the method without a platform, use
+[reliax-core](https://github.com/reliax-io/reliax-core) directly.
 
 ```
 pip install reliax-sdk
 ```
 
-PyPI package `reliax-sdk`, import name `reliax`, source in this repository
-(`reliax-io/reliax-python`). The method code imports as `reliax_core` and the
-certificate tools as `reliax_certificate`; this package is the client.
+PyPI package `reliax-sdk`, import name `reliax`.
 
 ```python
 import reliax
 
-reliax.configure("https://reliax.internal.example", api_key="...")
+reliax.configure("https://reliax.internal.example", api_key="...")   # your platform instance
 out = reliax.assess(
-    {"income": 54000, "dti": 0.31},                       # the model input, or its fingerprint
-    reliax.Context(score=0.04, model_reason_codes=["R01", "R07"], segment="thin-file"),
+    {"income": 54000, "dti": 0.31},                                     # the model input, or its fingerprint
+    reliax.Context(score=0.04, model_reason_codes=["R01", "R07"], segment="thin-file"),  # score: your model's output
 )
-out.route             # "ALLOW", "REVIEW" or "BLOCK"
-out.reason_codes      # e.g. ["CERTIFIED"] or ["SET_AMBIGUOUS"]
-out.certificate_text  # the wording stored in the record, verbatim
-out.audit_id
+print(out.route, out.reason_codes)   # ALLOW ['CERTIFIED']
+print(out.certificate_text)          # the wording stored on the record, verbatim
+print(out.audit_id)
 ```
 
 The context carries the model's score and its own reason codes. Both are
@@ -44,10 +49,11 @@ record, so a verifier can replay it.
 | Whether the population has moved: the drift state on this segment's stream, and the dated outcome recheck | guarantee |
 | The route, the row that matched, the route trace and the reasons | exact |
 
-Routing reads certified quantities only, in a fixed order, under a policy you
-write and version. The criticality score orders the review queue and never
-enters a rule. Nothing here is a probability that a given decision is right,
-and the certificate never prints a percentage next to a decision.
+The routing rule looks only at what the certificate guarantees, and the
+thresholds it applies come from a policy that you write and keep under version
+control. The criticality score orders the review queue and never enters a
+rule. How the certificate may and may not be read is set out once, in
+[Read this correctly](https://github.com/reliax-io#read-this-correctly).
 
 ## Verify a record without us
 
@@ -64,10 +70,10 @@ installed.
 
 | Package | What it is | Licence |
 |---|---|---|
-| [reliax-core](https://github.com/reliax-io/reliax-core) | The method: conformal sets, Venn-Abers brackets, the test martingale, the credibility p-value, the fast-loop evaluator with its route trace and reasons | Apache-2.0 |
+| [reliax-core](https://github.com/reliax-io/reliax-core) | The method: conformal sets, the calibrated bracket, the drift test, the credibility p-value, the routing rule | Apache-2.0 |
 | [reliax-certificate](https://github.com/reliax-io/reliax-certificate) | The certificate schema, the hash chain, the wording template, the fidelity check and the verifier | Apache-2.0 |
 | reliax-sdk (this package) | The client | Apache-2.0 |
-| Reliax platform | Calibration builder, reliability engine, review queues, audit service, dashboard; runs inside your infrastructure | Source-available, licensed |
+| Reliax platform | Calibration builder, reliability engine, review queues, audit service, dashboard; runs inside your infrastructure | Source-available |
 
 Everything that routes a decision or is written on the certificate is open.
 The platform holds the state and the workflow.
