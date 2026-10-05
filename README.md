@@ -5,7 +5,7 @@ platform. Apache-2.0. Standard library only. Terms used here are defined in
 the [glossary](https://github.com/reliax-io#terms).
 
 The client talks to a running Reliax platform, which holds the calibration
-cohorts, the drift state and the record store. Installing the client alone
+calibration sets, the drift state and the record store. Installing the client alone
 does nothing until it is pointed at one; how to get a platform is on the
 [organisation page](https://github.com/reliax-io#with-the-platform). To try
 the method without a platform, use
@@ -44,7 +44,7 @@ record, so a verifier can replay it.
 
 | | Class |
 |---|---|
-| Whether this answer can be relied on: a prediction set that contains the true outcome at least 1−α of the time, marginally and per declared segment, from a cohort named with its size, freeze date and hash | guarantee |
+| Whether this answer can be relied on: a prediction set that contains the true outcome at least 1−α of the time, marginally and per declared segment, from a calibration set named with its size, freeze date and hash | guarantee |
 | Whether the guarantee covers this input: the credibility p-value | guarantee |
 | Whether the population has moved: the drift state on this segment's stream, and the dated outcome recheck | guarantee |
 | The route, the row that matched, the route trace and the reasons | exact |
