@@ -7,6 +7,10 @@ platform. Apache-2.0. Standard library only.
 pip install reliax-sdk
 ```
 
+PyPI package `reliax-sdk`, import name `reliax`, source in this repository
+(`reliax-io/reliax-python`). The method code imports as `reliax_core` and the
+certificate tools as `reliax_certificate`; this package is the client.
+
 ```python
 import reliax
 
@@ -28,7 +32,10 @@ model's codes, never from Reliax.
 ## What comes back
 
 A certificate (envelope schema v16, [reliax-certificate](https://github.com/reliax-io/reliax-certificate))
-and a route. The certificate says four things:
+and a route. The certificate says four things: three guarantees and one exact
+output. A guarantee holds on exchangeable data at the stated level with no
+assumption on the model; an exact output is recomputed bit for bit from the
+record, so a verifier can replay it.
 
 | | Class |
 |---|---|
