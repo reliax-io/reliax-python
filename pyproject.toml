@@ -40,8 +40,8 @@ test = ["pytest>=8"]
 
 [project.urls]
 Homepage = "https://reliax.io"
-Source = "https://github.com/reliax-io/reliax-python"
-Issues = "https://github.com/reliax-io/reliax-python/issues"
+Source = "https://github.com/reliax-io/reliax-sdk"
+Issues = "https://github.com/reliax-io/reliax-sdk/issues"
 Evaluation = "https://github.com/reliax-io/reliax-evaluation"
 
 [tool.hatch.build.targets.wheel]
