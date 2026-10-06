@@ -47,7 +47,7 @@ record, so a verifier can replay it.
 | Whether this answer can be relied on: a prediction set that contains the true outcome at least 1−α of the time, marginally and per declared segment, from a calibration set named with its size, freeze date and hash | guarantee |
 | Whether the guarantee covers this input: the credibility p-value | guarantee |
 | Whether the population has moved: the drift state on this segment's stream, and the dated outcome recheck | guarantee |
-| The route, the row that matched, the route trace and the reasons | exact |
+| The route, the rule that fired, the route trace and the reasons | exact |
 
 The routing rule looks only at what the certificate guarantees, and the
 thresholds it applies come from a policy that you write and keep under version
