@@ -53,7 +53,7 @@ The routing rule looks only at what the certificate guarantees, and the
 thresholds it applies come from a policy that you write and keep under version
 control. The criticality score orders the review queue and never enters a
 rule. How the certificate may and may not be read is set out once, in
-[Read this correctly](https://github.com/reliax-io#read-this-correctly).
+[Caveat](https://github.com/reliax-io#caveat).
 
 ## Verify a record without us
 
